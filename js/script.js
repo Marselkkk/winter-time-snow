@@ -23,6 +23,26 @@ new Swiper(".mainSlider", {
       nextEl: ".mainSlider .swiper-button-next",
       prevEl: ".mainSlider .swiper-button-prev",
     },
+    breakpoints: {
+        320: {
+            slidesPerView: 1.2,
+            spaceBetween: 10,
+            centeredSlides: true,
+            loop: true
+        },
+        1500: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            centeredSlides: true,
+            loop: true
+        },
+        1600: {
+            slidesPerView: 1.2,
+            spaceBetween: 25,
+            centeredSlides: true,
+            loop: true
+        }
+    }
 });
 
 new Swiper(".newProductSlider", {
@@ -33,6 +53,23 @@ new Swiper(".newProductSlider", {
       nextEl: ".newProductSection .swiper-button-next",
       prevEl: ".newProductSection .swiper-button-prev",
     },
+    breakpoints: {
+        // when window width is >= 320px
+        320: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        
+        480: {
+          slidesPerView: 3,
+          spaceBetween: 30
+        },
+
+        640: {
+          slidesPerView: 4,
+          spaceBetween: 40
+        }
+      }
 });
 
 new Swiper(".popularProductSlider", {

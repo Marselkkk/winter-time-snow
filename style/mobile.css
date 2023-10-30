@@ -1,1 +1,21 @@
-/*# sourceMappingURL=mobile.css.map */
+@media screen and (max-width: 1740px) {
+  .header-add .header-addBlock .info-block {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+  .header-add .header-addBlock .info-block .item:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .header-add .header-addBlock .info-block .item:nth-child(2) > ul {
+    display: flex;
+    text-align: center;
+    gap: 10px;
+  }
+  .header-add .header-addBlock .info-block .item:nth-child(2) > ul li {
+    gap: 5px;
+  }
+}/*# sourceMappingURL=mobile.css.map */
