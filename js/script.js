@@ -89,6 +89,19 @@ new Swiper(".blogSlider", {
       nextEl: ".blogSlider .swiper-button-next",
       prevEl: ".blogSlider .swiper-button-prev",
     },
+    breakpoints: {
+        // when window width is >= 320px
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          autoplay: true
+        },
+
+        640: {
+          slidesPerView: 4,
+          spaceBetween: 40
+        }
+      }
 });
 
 $(document).on('click', '.checkField', function (el) {
