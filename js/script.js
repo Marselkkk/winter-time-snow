@@ -497,3 +497,4 @@ $('.variants .item_a ul li').on('click', function() {
     $(this).addClass('active')
     $(this).parents('.name').find('> span').text($(this).text())
 })
+
