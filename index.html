@@ -70,7 +70,7 @@
                 <div class="item functions">
                     <ul>
                         <li>
-                            <a href="">
+                            <a class="open-modal" data-type-modal="type-1">
                                 <div class="icon"><img src="img/details/lk.svg" alt=""></div>
                                 <span>Войти</span>
                             </a>
@@ -88,7 +88,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a data-bs-toggle="modal" data-bs-target="#mapModal">
                                 <div class="icon"><img src="img/details/loop.svg" alt=""></div>
                                 <span>Поиск</span>
                             </a>
@@ -690,6 +690,20 @@
                 </div>
             </div>
         </section>
+        <section class="testSection">
+            <div class="testBlock container">
+                <form>
+                    <input type="text">
+                    <select name="">
+                        <option value="1">test1</option>
+                        <option value="2">test2</option>
+                        <option value="60">test3</option>
+                        <option value="gdsgdfgdf">test4</option>
+                        <option value="76">test5</option>
+                    </select>
+                </form>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -829,12 +843,66 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="info-block map">
+                        <div class="item"><div id="map" data-coord="[{'name': 'Москва, Юбилейная 16', 'points': [{'city': 'Москва', 'address': 'Юбилейная 16', 'phone': '123123', 'coordinate': '59.882338, 30.311853'}]}, {'name': 'Тольятти, Свердлова', 'points': [{'city': 'Тольятти', 'address': 'Свердлова', 'phone': '', 'coordinate': '53.530359, 49.318791'}]}, {'name': 'Москва, Степана Разина', 'points': [{'city': 'Москва', 'address': 'Степана Разина', 'phone': '123123132123', 'coordinate': '53.531180, 49.308489'}]}]"></div></div>
+                        <div class="item main">
+                            <div class="city">
+                                <span>Ваш город:</span>
+                                <select name="city">
+                                    <option value="Москва">Москва</option>
+                                    <option value="Тольятти">Тольятти</option>
+                                    <option value="Санкт-Петербург">Санкт-Петербург</option>
+                                </select>
+                            </div>
+                            <div class="tab-list">
+                                <div class="name-block-main">
+                                    <div class="name-block">
+                                        <span class="active" data-tab="1">Магазины</span>
+                                        <span data-tab="2">Пункты выдачи</span>
+                                    </div>
+                                </div>
+                                <div class="list">
+                                    <ul class="active" data-tab="1">
+                                        <li data-coordinate="">
+                                            <div class="info">
+                                                <div class="name">МЕГА Белая Дача 1</div>
+                                                <div class="add">Люблино, Кузьминки, Выхино</div>
+                                                <div class="price">Сегодня, бесплатно</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <ul data-tab="2">
+                                        <li data-coordinate="">
+                                            <div class="info">
+                                                <div class="name">МЕГА Белая Дача 2</div>
+                                                <div class="add">Люблино, Кузьминки, Выхино</div>
+                                                <div class="price">Сегодня, бесплатно</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
     <script src="js/jquery.maskedinput.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=e776afca-338e-46fb-89ca-a177ec256527&lang=ru_RU" type="text/javascript"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

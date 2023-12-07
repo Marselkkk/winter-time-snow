@@ -23,26 +23,6 @@ new Swiper(".mainSlider", {
       nextEl: ".mainSlider .swiper-button-next",
       prevEl: ".mainSlider .swiper-button-prev",
     },
-    breakpoints: {
-        320: {
-            slidesPerView: 1.2,
-            spaceBetween: 10,
-            centeredSlides: true,
-            loop: true
-        },
-        1500: {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            centeredSlides: true,
-            loop: true
-        },
-        1600: {
-            slidesPerView: 1.2,
-            spaceBetween: 25,
-            centeredSlides: true,
-            loop: true
-        }
-    }
 });
 
 new Swiper(".newProductSlider", {
@@ -53,23 +33,6 @@ new Swiper(".newProductSlider", {
       nextEl: ".newProductSection .swiper-button-next",
       prevEl: ".newProductSection .swiper-button-prev",
     },
-    breakpoints: {
-        // when window width is >= 320px
-        320: {
-          slidesPerView: 2,
-          spaceBetween: 20
-        },
-        
-        480: {
-          slidesPerView: 3,
-          spaceBetween: 30
-        },
-
-        640: {
-          slidesPerView: 4,
-          spaceBetween: 40
-        }
-      }
 });
 
 new Swiper(".popularProductSlider", {
@@ -89,19 +52,16 @@ new Swiper(".blogSlider", {
       nextEl: ".blogSlider .swiper-button-next",
       prevEl: ".blogSlider .swiper-button-prev",
     },
-    breakpoints: {
-        // when window width is >= 320px
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 20,
-          autoplay: true
-        },
+});
 
-        640: {
-          slidesPerView: 4,
-          spaceBetween: 40
-        }
-      }
+new Swiper(".categorySlider", {
+    slidesPerView: 9,
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+      nextEl: ".categoryMiniSection .swiper-button-next",
+      prevEl: ".categoryMiniSection .swiper-button-prev",
+    },
 });
 
 $(document).on('click', '.checkField', function (el) {
@@ -330,19 +290,76 @@ function infoOpenModal(elem) {
         bodyText = $('.modal#infoModal .modal-body')
     titleText.html('')
     bodyText.html('')
-    if (type == 'test') {
+
+    if (type === 'type-1') {
         titleText.html(`
-            <div class="h1 _title36 modal-title" id="exampleModalLabel">Заказать обратный звонок</div>
+            <div class="modal-title center">Чтобы воспользоваться быстрым бронированием выполните вход или зарегистрируйтесь на сайте</div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
         `)
         bodyText.html(`
-            <form class="application-block">
-                <input type="phone" class="mask-phone" placeholder="Номер телефона" name="phone">
-                <div class="desc">Нажимая кнопку “Отправить” вы даете согласие на обработку персональных данных</div>
-                <div class="btn-block">
-                    <div class="btn btnBlack checkField" data-create="feedback_request" data-request="success-modal">Отправить</div>
+            <div class="info-block">
+                <div class="item">
+                    <div class="name">Вход</div>
+                    <form class="application-block">
+                        <label class="field">
+                            <span>Номер телефона или email</span>
+                            <input name="name_email" type="text">
+                        </label>
+                        <label class="field">
+                            <span>Пароль</span>
+                            <input name="password" type="password">
+                        </label>
+                        <div class="fb">
+                            <div class="field-block">
+                                <label class="checkbox-block">
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="check" name="remember" class="no-r">
+                                        <div>
+                                            <svg viewBox="0,0,50,50">
+                                                <path d="M5 30 L 20 45 L 45 5"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <span>Запомнить меня</span>
+                                </label>
+                                <a href="#" class="recover-pass">Забыли пароль?</a>
+                            </div>
+                            <div class="btn checkField">Войти</div>
+                        </div>
+                    </form>
                 </div>
-            </form>
+                <div class="item">
+                    <div class="name">Регистрация</div>
+                    <form class="application-block">
+                        <label class="field">
+                            <span>Имя*</span>
+                            <input name="name" type="text">
+                        </label>
+                        <label class="field">
+                            <span>Email*</span>
+                            <input name="email" type="text">
+                        </label>
+                        <label class="field">
+                            <span>Номер телефона*</span>
+                            <input name="phone" type="text" class="mask-phone">
+                        </label>
+                        <div class="fb">
+                            <label class="checkbox-block">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="check" name="rules" checked>
+                                    <div>
+                                        <svg viewBox="0,0,50,50">
+                                            <path d="M5 30 L 20 45 L 45 5"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span>Вы соглашаетесь с правилами</span>
+                            </label>
+                            <div class="btn white border checkField">Зарегистрироваться</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         `)
     }
     maskField()
@@ -394,3 +411,89 @@ function infoOpenModal(elem) {
 //         console.log(2);
 //     }
 // })
+
+$(document).on('click', '[data-tab]', function() {
+    let id = $(this).attr('data-tab'),
+        content = $(this).parents('.tab-list').find(`.list ul[data-tab='${id}']`)
+    $(this).parents('.tab-list').find(`.list ul.active`).removeClass('active')
+    $(this).parents('.tab-list').find(`.name-block-main span.active`).removeClass('active')
+    content.addClass('active')
+    $(this).addClass('active')
+})
+
+let myMap
+let myModalEl = document.getElementById('mapModal')
+myModalEl.addEventListener('shown.bs.modal', function (event) {
+    ymaps.ready(init);
+})
+myModalEl.addEventListener('hidden.bs.modal', function (event) {
+    myMap.destroy()
+})
+
+async function init() {
+    let center = [53.50425306146371, 49.300817274648665];
+    let e;
+    if ($("#map").data("coord")) {
+        e = JSON.parse($("#map").data("coord").replace(/"/g, '\\"').replace(/'/g, '"').replace(/False/g, false).replace(/True/g, true).replace(/None/g, null));
+    } else {
+        e = '';
+    }
+    let all_branches = e;
+    myMap = new ymaps.Map("map", {
+        center: center,
+        zoom: 5,
+        controls: ['zoomControl'],
+        minZoom: 8,
+    });
+
+    let clusterer = new ymaps.Clusterer({
+        clusterDisableClickZoom: false,
+        gridSize: 32,
+    });
+
+    let minLat = Number.MAX_VALUE;
+    let maxLat = Number.MIN_VALUE;
+    let minLng = Number.MAX_VALUE;
+    let maxLng = Number.MIN_VALUE;
+
+    for (let cityData of all_branches) {
+        for (let point of cityData.points) {
+            let coords = point.coordinate.split(',');
+            let lat = parseFloat(coords[0]);
+            let lng = parseFloat(coords[1]);
+            clusterer.add(
+                new ymaps.Placemark(coords, {
+                    balloonContentHeader: `<span>Стоянка на ${point.address}</span>`,
+                    balloonContentBody: `<span>Город: ${point.color}</span><br><span>Адрес: ${point.address}</span><br>${point.phone ? `<span>Телефон: <a href="tel:${point.phone}">${point.phone}</a></span>` : ''}`
+                }, {
+                    preset: 'islands#icon',
+                    iconColor: '#000000'
+                })
+            );
+            // Обновляем границы области с учетом текущей точки
+            minLat = Math.min(minLat, lat);
+            maxLat = Math.max(maxLat, lat);
+            minLng = Math.min(minLng, lng);
+            maxLng = Math.max(maxLng, lng);
+        }
+    }
+
+    myMap.geoObjects.add(clusterer);
+
+    if (clusterer.getGeoObjects().length > 1) {
+        // Вычисляем оптимальный уровень приближения (zoom) для отображения всех точек
+        myMap.setBounds([[minLat, minLng], [maxLat, maxLng]], {
+            checkZoomRange: true, // Учитываем ограничения на максимальный и минимальный zoom
+        });
+    } else {
+        let coords = clusterer.getGeoObjects()[0].geometry.getCoordinates();
+        myMap.setZoom(14);
+        myMap.setCenter(coords);
+    }
+}
+
+$('.variants .item_a ul li').on('click', function() {
+    $(this).parents('ul').find('li').removeClass('active')
+    $(this).addClass('active')
+    $(this).parents('.name').find('> span').text($(this).text())
+})
