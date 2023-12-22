@@ -141,6 +141,10 @@ select {
         &.border {
             border-color: $black!important;
         }
+        &.border-red {
+            border-color: $red!important;
+            color: $red;
+        }
     }
     &.red {
         background-color: $red;
@@ -1536,8 +1540,12 @@ footer {
         }
     }
 }
-.cardSection {
-    .cardBlock {
+
+.addSection {
+    .addBlock {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
         .breadcrumbs {
             ul {
                 list-style: none;
@@ -1554,21 +1562,18 @@ footer {
                         top: 50%;
                         right: -14px;
                         font-size: var(--fz12);
-                        transform: translateY(-50%);
                         color: $black;
-                        
-
+                        transform: translateY(-50%);
                     }
-                    >a {
+                    &:last-of-type {
+                        opacity: .5;
+                    }
+                    > a {
                         color: $black;
                         display: block;
-                        font-weight: 500;
                         &:hover {
-                            color: $dgrey;
+                            color: $black;
                             opacity: .7;
-                        }
-                        &.active {
-                            color: $dgrey;
                         }
                     }
                 }
@@ -1577,63 +1582,29 @@ footer {
         .filter-mini {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
-            margin-top: 35px;
             .item {
                 display: flex;
-                gap: 18px;
-                border: 1px solid $dgrey;
-                padding: 20px;
                 align-items: center;
-                .number {
-                    font-size: 48px;
+                gap: 10px 21px;
+                padding: 20px;
+                border: 1px solid $grey;
+                position: relative;
+                &::before {
+                    content: attr(data-num);
+                    display: block;
+                    font-size: var(--fz48);
                     font-weight: 500;
-                }
-                .cart {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 8px;
-                    font-size: 8px;
-                    text-transform: uppercase;
-                    text-align: center;
-                }
-                &.fm_1{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: start;
-                    gap: 18px;
-                   
-                }
                 }
                 .name {
-                    font-size: fz16;
+                    font-size: var(--fz16);
                     font-weight: 500;
-                }
-                .name-desc {
-                    position: relative;
-                    display: flex;
-                    gap: 12px;
-                    align-items: baseline;
-                    &::after {
-                        content: "20%";
-                        color: $white;
-                        padding: 5px 10px;
-                        top: 0px;
-                        left: 0;
-                        background-color: $red;
-                    }
-                    &.active {
-                        color: $red;
-                        font-weight: 500;
-                    }
                 }
                 .icon {
                     width: 40px;
                     height: 35px;
                     img {
-                        object-fit: contain; 
+                        object-fit: contain;
                     }
-                   
                 }
                 .nv {
                     display: flex;
@@ -1679,8 +1650,9 @@ footer {
                                     font-weight: 500;
                                     padding: 7px 20px;
                                     cursor: pointer;
-                                    &:hover, &.active {
-                                        background-color: $grey;
+                                    &:hover,
+                                    &.active {
+                                        background-color: $lgrey;
                                     }
                                     &:first-of-type {
                                         padding-top: 15px;
@@ -1696,5 +1668,388 @@ footer {
                     }
                 }
             }
+        }
+    }
 }
+.productCardSection {
+    .productCardBlock {
+        .info-block {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 50px;
+            .item {
+                &.slider-content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 50px;
+                    .content {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 43px;
+                        .description {
+                            margin-top: -20px;
+                        }
+                        .img-desc {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 25px;
+                            img {
+                                width: 320px;
+                                height: auto;
+                                object-fit: contain;
+                            }
+                        }
+                        .specifications {
+                            ul {
+                                display: grid;
+                                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                                gap: 20px 180px;
+                                margin: 0;
+                                padding: 0;
+                                list-style: none;
+                                li {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    gap: 10px;
+                                    font-size: var(--fz16);
+                                    .value {
+                                        font-weight: 500;
+                                    }
+                                }
+                            }
+                        }
+                        .media {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 30px;
+                            .video {
+                                position: relative;
+                                &::after {
+                                    content: '';
+                                    display: block;
+                                    padding-bottom: 56.25%;
+                                }
+                                video {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+                &.slider {
+                    display: grid;
+                    grid-template-columns: 120px 1fr;
+                    gap: 33px;
+                    height: 705px;
+                    .swiper {
+                        height: 100%;
+                        &.pcSlider_1 {
+                            .swiper-wrapper {
+                                margin: 0;
+                                max-width: none;
+                                .swiper-slide {
+                                    padding: 20px 15px;
+                                    &.swiper-slide-thumb-active {
+                                        border: 1px solid $grey;
+                                        background-color: $lgrey;
+                                    }
+                                }
+                            }
+                        }
+                        &.pcSlider_2 {
+                            margin: 0;
+                        }
+                        .swiper-wrapper {
+                            max-width: 0;
+                        }
+                    }
+                }
+                &.product-info {
+                    .item_c {
+                        padding: 25px 0;
+                        &:not(:last-of-type) {
+                            border-bottom: 1px solid $grey;
+                        }
+                        &:first-of-type {
+                            padding-top: 0;
+                        }
+                        &:last-of-type {
+                            padding-bottom: 0;
+                        }
+                        &.information {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 15px;
+                            .article {
+                                margin-bottom: 5px;
+                                font-size: var(--fz12);
+                            }
+                            .lr {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                gap: 10px 25px;
+                                .lrr {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 10px 25px;
+                                    .logo {
+                                        width: 45px;
+                                        height: 45px;
+                                        img {
+                                            object-fit: contain;
+                                        }
+                                    }
+                                    .rr {
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 5px 20px;
+                                        .review {
+                                            text-decoration: underline;
+                                        }
+                                    }
+                                }
+                                .favourites {
+                                    padding: 10px;
+                                    background-color: $white;
+                                    border-radius: 50%;
+                                    border: 1px solid $black;
+                                    @include df_ac_jcc;
+                                    cursor: pointer;
+                                    width: 40px;
+                                    height: 40px;
+                                    transition: all .3s;
+                                    z-index: 10;
+                                    svg {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: contain;
+                                        path {
+                                            transition: all .3s;
+                                        }
+                                    }
+                                    &:hover,
+                                    &.active {
+                                        background-color: $black;
+                                        svg {
+                                            path {
+                                                fill: $white;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            > .name {
+                                font-size: var(--fz21);
+                                font-weight: 500;
+                            }
+                            .price-add {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: flex-end;
+                                gap: 10px;
+                                .price {
+                                    font-size: var(--fz32);
+                                    font-weight: 500;
+                                }
+                                > a {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                        &.function {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 25px;
+                            .item_a {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 20px;
+                                .mini-content {
+                                    .swiper {
+                                        .swiper-wrapper {
+                                            .swiper-slide {
+                                                position: relative;
+                                                cursor: pointer;
+                                                &::after {
+                                                    content: '';
+                                                    display: block;
+                                                    padding-bottom: 116%;
+                                                }
+                                                .img {
+                                                    position: absolute;
+                                                    top: 0;
+                                                    left: 0;
+                                                    padding: 16px 10px;
+                                                    width: 100%;
+                                                    height: 100%;
+                                                    img {
+                                                        object-fit: contain;
+                                                    }
+                                                }
+                                                &.active-color {
+                                                    border: 1px solid $gray;
+                                                    background-color: $lgrey;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    &.scroll {
+                                        overflow: auto;
+                                        display: flex;
+                                    }
+                                    > ul {
+                                        margin: 0;
+                                        padding: 0;
+                                        list-style: none;
+                                        display: flex;
+                                        gap: 10px;
+                                        flex: 1;
+                                        li {
+                                            width: 50px;
+                                            height: 50px;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            cursor: pointer;
+                                            background-color: $lgrey;
+                                            &.active {
+                                                background-color: $black;
+                                                color: $white;
+                                            }
+                                            &.over {
+                                                cursor: default;
+                                                pointer-events: none;
+                                                color: $gray;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .btn-block {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 15px;
+                            }
+                        }
+                        &.delivery {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 25px;
+                            > .name {
+                                font-size: var(--fz16);
+                                > span {
+                                    text-decoration: underline;
+                                }
+                            }
+                            ul {
+                                margin: 0;
+                                padding: 0;
+                                list-style: none;
+                                display: flex;
+                                flex-direction: column;
+                                gap: 10px;
+                                li {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 15px;
+                                    .icon {
+                                        width: 70px;
+                                        height: 70px;
+                                        padding: 19px 12px;
+                                        overflow: hidden;
+                                        border-radius: 4px;
+                                        background-color: $lgrey;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        svg {
+                                            width: 100%;
+                                            height: 100%    ;
+                                            object-fit: contain;
+                                        }
+                                    }
+                                    .ni {
+                                        display: flex;
+                                        flex-direction: column;
+                                        gap: 5px;
+                                        > .name {
+                                            > span {
+                                                text-decoration: underline;
+                                            }
+                                        }
+                                        .info {
+                                            display: flex;
+                                            gap: 6px;
+                                            .item_a {
+                                                &:first-of-type {
+                                                    display: flex;
+                                                    gap: 6px;
+                                                    font-weight: 500;
+                                                    &::after {
+                                                        content: '/';
+                                                        display: block;
+                                                    }
+                                                }
+                                                &:nth-child(2) {
+                                                    &:has(span) {
+                                                        display: flex;
+                                                        gap: 28px;
+                                                        > span {
+                                                            &:nth-child(2) {
+                                                                color: $dgrey;
+                                                                text-decoration: line-through;
+                                                            }
+                                                        }
+                                                    }
+                                                    > span {
+                                                        &.free {
+                                                            color: $green;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.rating-mini {
+	display: flex;
+    align-items: center;
+    gap: 3px;
+	font-size: 0;
+    span {
+        padding: 0;
+        line-height: 1;
+        width: 18px;
+        height: 18px;
+        svg {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: bottom;
+        }
+    }
+    > span.active {
+        color: $red;
+        width: 20px;
+        height: 20px;
+        svg {
+            path {
+                fill: $red;
+                stroke-width: 0;
+            }
+        }
+    }
 }

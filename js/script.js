@@ -7,7 +7,7 @@ $(window).resize(function() {
 })
 // href
 $("body").on('click', '[href*="#"]', function (e) {
-	var fixed_offset = 0;
+	var fixed_offset = $('header .header').height();
 	$('html,body').stop().animate({
 		scrollTop: $(this.hash).offset().top - fixed_offset
 	}, 1000);
@@ -61,6 +61,36 @@ new Swiper(".categorySlider", {
     navigation: {
       nextEl: ".categoryMiniSection .swiper-button-next",
       prevEl: ".categoryMiniSection .swiper-button-prev",
+    },
+});
+
+let pc_slider_1 = new Swiper(".pcSlider_1", {
+    loop: true,
+    spaceBetween: 2,
+    slidesPerView: 5,
+    mousewheel: true,
+    direction: "vertical",
+    freeMode: {
+        enabled: true,
+        sticky: true,
+    },
+    watchSlidesProgress: true,
+  });
+let pc_slider_2 = new Swiper(".pcSlider_2", {
+    loop: true,
+    spaceBetween: 10,
+    mousewheel: true,
+    thumbs: {
+      swiper: pc_slider_1,
+    },
+});
+
+new Swiper(".colorProductSlider", {
+    slidesPerView: 6,
+    spaceBetween: 2,
+    freeMode: {
+        enabled: true,
+        sticky: true,
     },
 });
 
@@ -498,3 +528,15 @@ $('.variants .item_a ul li').on('click', function() {
     $(this).parents('.name').find('> span').text($(this).text())
 })
 
+$('.productCardSection .item_a .mini-content .swiper .swiper-slide').on('click', function() {
+    $(this).parents('.swiper').find('.swiper-slide').removeClass('active-color')
+    $(this).addClass('active-color')
+    let url = $(this).find('.img img').attr('src'),
+        slide_main = $('.productCardSection .info-block .item.slider .swiper.pcSlider_1 .swiper-slide')
+    $(slide_main).each(function(index, value) {
+        if ($(value).find('img').attr('src') === url) {
+            pc_slider_1.slideTo($(value).attr('data-swiper-slide-index'))
+            pc_slider_2.slideTo($(value).attr('data-swiper-slide-index'))
+        }
+    })
+})
