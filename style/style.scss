@@ -2053,3 +2053,49 @@ footer {
         }
     }
 }
+
+.reviewsProductSection {
+    .reviewsProductBlock {
+        display: flex;
+        justify-content: space-between;
+        .item {
+            &.main {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                max-width: 889px;
+                .nf {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 35px;
+                    .name {
+                        font-size: var(--fz21);
+                        font-weight: 500;
+                        display: flex;
+                        gap: 15px;
+                        &::after {
+                            content: attr(data-count);
+                            color: $dgrey;
+                        }
+                    }
+                    form {
+                        display: flex;
+                        align-items: center;
+                        border: 1px solid $grey;
+                        padding: 10px;
+                        input {
+                            border: 0;
+                        }
+                        .rb {
+                            display: flex;
+                            gap: 40px;
+                            .rating-mini {
+                                gap: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -2019,4 +2019,46 @@ footer .footer .footer_3 .desc {
 .rating-mini > span.active svg path {
   fill: #EB5757;
   stroke-width: 0;
+}
+
+.reviewsProductSection .reviewsProductBlock {
+  display: flex;
+  justify-content: space-between;
+}
+.reviewsProductSection .reviewsProductBlock .item.main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 889px;
+}
+.reviewsProductSection .reviewsProductBlock .item.main .nf {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+.reviewsProductSection .reviewsProductBlock .item.main .nf .name {
+  font-size: var(--fz21);
+  font-weight: 500;
+  display: flex;
+  gap: 15px;
+}
+.reviewsProductSection .reviewsProductBlock .item.main .nf .name::after {
+  content: attr(data-count);
+  color: #828B8D;
+}
+.reviewsProductSection .reviewsProductBlock .item.main .nf form {
+  display: flex;
+  align-items: center;
+  border: 1px solid #CED4D7;
+  padding: 10px;
+}
+.reviewsProductSection .reviewsProductBlock .item.main .nf form input {
+  border: 0;
+}
+.reviewsProductSection .reviewsProductBlock .item.main .nf form .rb {
+  display: flex;
+  gap: 40px;
+}
+.reviewsProductSection .reviewsProductBlock .item.main .nf form .rb .rating-mini {
+  gap: 10px;
 }/*# sourceMappingURL=style.css.map */
