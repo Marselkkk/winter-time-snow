@@ -2061,4 +2061,39 @@ footer .footer .footer_3 .desc {
 }
 .reviewsProductSection .reviewsProductBlock .item.main .nf form .rb .rating-mini {
   gap: 10px;
+}
+.reviewsProductSection .reviewsProductBlock .item.rating {
+  margin-top: 55px;
+  max-width: 350px;
+  flex: 1;
+}
+.reviewsProductSection .reviewsProductBlock .item.rating ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.reviewsProductSection .reviewsProductBlock .item.rating ul li {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+}
+.reviewsProductSection .reviewsProductBlock .item.rating ul li .ball {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.reviewsProductSection .reviewsProductBlock .item.rating ul li .line {
+  background-color: #828B8D;
+  width: 240px;
+  height: 2px;
+  z-index: -1;
+  position: relative;
+}
+.reviewsProductSection .reviewsProductBlock .item.rating ul li .line .line2 {
+  position: absolute;
+  background-color: #EB5757;
+  width: 200px;
+  height: 2px;
 }/*# sourceMappingURL=style.css.map */

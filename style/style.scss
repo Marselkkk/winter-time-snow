@@ -2096,6 +2096,41 @@ footer {
                     }
                 }
             }
+            &.rating {
+                margin-top: 55px;
+                max-width: 350px;
+                flex: 1;
+                ul {
+                    list-style: none;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 10px;
+                    li {
+                        display: flex;
+                        align-items: center;
+                        gap: 23px;
+                        .ball {
+                            display: flex;
+                            align-items: center;
+                            gap: 13px;
+                        }
+                        .line {
+                            background-color: $dgrey;
+                            width: 240px;
+                            height: 2px;
+                            z-index: -1;
+                            position: relative;
+                            .line2 {
+                                position: absolute;
+                                background-color: $red;
+                                width: 200px;
+                                height: 2px;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
