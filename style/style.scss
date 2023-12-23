@@ -2083,8 +2083,10 @@ footer {
                         align-items: center;
                         border: 1px solid $grey;
                         padding: 10px;
+                        background-color: $lgrey;
                         input {
                             border: 0;
+                            background-color: $lgrey;
                         }
                         .rb {
                             display: flex;
@@ -2103,14 +2105,32 @@ footer {
                         gap: 55px;
                         .item_a {
                             display: flex;
+                            gap: 70px;
                             .rd {
                                 display: flex;
                                 flex-direction: column;
                                 gap: 20px;
+                                .rating-mini {
+                                    display: flex;
+                                    gap: 10px;
+                                }
+                                .date {
+                                    font-size: var(--fz14);
+                                    color: $gray;
+                                }
                             }
                             .nt {
-                                di
+                                display: flex;
+                                flex-direction: column;
                                 gap: 15px;
+                                .name {
+                                    font-size: var(--fz14);
+                                    font-weight: bold;
+                                }
+                                .text {
+                                    font-size: var(--fz14);
+                                    font-weight: 400;
+                                }
                             }
                         }
                     }
@@ -2137,17 +2157,35 @@ footer {
                         }
                         .line {
                             background-color: $dgrey;
-                            width: 240px;
+                            flex: 1;
                             height: 2px;
                             z-index: -1;
                             position: relative;
                             .line2 {
                                 position: absolute;
                                 background-color: $red;
-                                width: 200px;
+                                width: 150px;
                                 height: 2px;
                             }
                         }
+                        .count {
+                            width: 20px;
+                        }
+                    }
+                }
+                .obshi-otziv {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    text-align: center;
+                    align-items: center;
+                    .sred {
+                        font-size: var(--fz14);
+                        font-weight: 400;
+                    }
+                    .numb {
+                        font-weight: 400;
+                        font-size: 90px;
                     }
                 }
             }

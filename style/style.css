@@ -2051,9 +2051,11 @@ footer .footer .footer_3 .desc {
   align-items: center;
   border: 1px solid #CED4D7;
   padding: 10px;
+  background-color: #F9F9F9;
 }
 .reviewsProductSection .reviewsProductBlock .item.main .nf form input {
   border: 0;
+  background-color: #F9F9F9;
 }
 .reviewsProductSection .reviewsProductBlock .item.main .nf form .rb {
   display: flex;
@@ -2072,14 +2074,33 @@ footer .footer .footer_3 .desc {
 }
 .reviewsProductSection .reviewsProductBlock .item.main .reviews .info-block .item_a {
   display: flex;
+  gap: 70px;
 }
 .reviewsProductSection .reviewsProductBlock .item.main .reviews .info-block .item_a .rd {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+.reviewsProductSection .reviewsProductBlock .item.main .reviews .info-block .item_a .rd .rating-mini {
+  display: flex;
+  gap: 10px;
+}
+.reviewsProductSection .reviewsProductBlock .item.main .reviews .info-block .item_a .rd .date {
+  font-size: var(--fz14);
+  color: #BDBDBD;
+}
 .reviewsProductSection .reviewsProductBlock .item.main .reviews .info-block .item_a .nt {
+  display: flex;
+  flex-direction: column;
   gap: 15px;
+}
+.reviewsProductSection .reviewsProductBlock .item.main .reviews .info-block .item_a .nt .name {
+  font-size: var(--fz14);
+  font-weight: bold;
+}
+.reviewsProductSection .reviewsProductBlock .item.main .reviews .info-block .item_a .nt .text {
+  font-size: var(--fz14);
+  font-weight: 400;
 }
 .reviewsProductSection .reviewsProductBlock .item.rating {
   margin-top: 55px;
@@ -2105,7 +2126,7 @@ footer .footer .footer_3 .desc {
 }
 .reviewsProductSection .reviewsProductBlock .item.rating ul li .line {
   background-color: #828B8D;
-  width: 240px;
+  flex: 1;
   height: 2px;
   z-index: -1;
   position: relative;
@@ -2113,6 +2134,24 @@ footer .footer .footer_3 .desc {
 .reviewsProductSection .reviewsProductBlock .item.rating ul li .line .line2 {
   position: absolute;
   background-color: #EB5757;
-  width: 200px;
+  width: 150px;
   height: 2px;
+}
+.reviewsProductSection .reviewsProductBlock .item.rating ul li .count {
+  width: 20px;
+}
+.reviewsProductSection .reviewsProductBlock .item.rating .obshi-otziv {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  align-items: center;
+}
+.reviewsProductSection .reviewsProductBlock .item.rating .obshi-otziv .sred {
+  font-size: var(--fz14);
+  font-weight: 400;
+}
+.reviewsProductSection .reviewsProductBlock .item.rating .obshi-otziv .numb {
+  font-weight: 400;
+  font-size: 90px;
 }/*# sourceMappingURL=style.css.map */
