@@ -2095,6 +2095,26 @@ footer {
                         }
                     }
                 }
+                .reviews {
+                    margin-top: 50px;
+                    .info-block {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 55px;
+                        .item_a {
+                            display: flex;
+                            .rd {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 20px;
+                            }
+                            .nt {
+                                di
+                                gap: 15px;
+                            }
+                        }
+                    }
+                }
             }
             &.rating {
                 margin-top: 55px;
